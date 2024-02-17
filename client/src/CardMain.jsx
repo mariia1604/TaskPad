@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './header'
 
 const CardMain = () => {
 
@@ -8,10 +7,10 @@ const CardMain = () => {
             <div className="workspace_card_main">
                 <div className="workspace_card">
                     <p className="card_name">"Название"</p>
-                        <div className="card_btns">
-                            <button className='btn_users'>участники</button>
-                            <button className='btn_delete_card'>удалить</button>
-                        </div>
+                    <div className="card_btns">
+                        <button className='btn_users'>участники</button>
+                        <button className='btn_delete_card'>удалить</button>
+                    </div>
                 </div>
                 <div className="workspace_tasks">
                     <div className="circle" />
