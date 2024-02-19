@@ -1,4 +1,6 @@
+import { useState } from "react"
 import React from 'react'
+import Modal from "./ModalSettings"
 import './App.css'
 import { useDispatch } from 'react-redux'
 import { logOut } from './redux/authSlice'
@@ -11,12 +13,19 @@ const Header = () => {
   const token = useSelector((state) => state.auth.token)
   const role = useSelector((state) => state.auth.role)
 
+  const [showModal, setShowModal] = useState(false);
+
+    const toggleShowModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
     <div className="header">
         <a href="" className="nickname">@имя_пользователя</a>
         <div className="a_header">
-          <a href="" className="settings">настройки</a>
+          <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
+          <button className="settings" onClick={toggleShowModal}>настройки</button>
           <button className="logout" onClick={() => { dispatch(logOut()) }}>выйти</button>
         </div>
     </div>

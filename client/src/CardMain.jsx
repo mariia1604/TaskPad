@@ -1,14 +1,24 @@
+import { useState } from "react"
 import React from 'react'
+import Modal from "./ModalMembers"
 
 const CardMain = () => {
 
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleShowModal = () => {
+    setShowModal(!showModal);
+  };
+
     return (
+
         <>
             <div className="workspace_card_main">
                 <div className="workspace_card">
                     <p className="card_name">"Название"</p>
                     <div className="card_btns">
-                        <button className='btn_users'>участники</button>
+                        <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
+                        <button className='btn_users' onClick={toggleShowModal}>участники</button>
                         <button className='btn_delete_card'>удалить</button>
                     </div>
                 </div>
