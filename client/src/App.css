@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates');
+
+* {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
 html {
   background: #51A36B;
 }
@@ -6,4 +12,207 @@ html {
   background-color:rgba(255, 255, 255, 0.25);
   display: flex;
   justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+  height: 50px;
+  width: 72vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    gap: 40px;
+}
+
+.nickname {
+    font-weight: 600;
+    font-size: 16px;
+    color: #B5E67B;
+    text-decoration: none;
+}
+
+.a_header {
+    display: flex;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.settings {
+    color: #B5E67B;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.logout {
+    color: #FF978C;
+    background: none;
+    border: none;
+    font-size: 14px;
+}
+
+.add_workspace {
+    background-color:rgba(255, 255, 255, 0.25);
+    height: 148px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    color: #B5E67B;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.main_content {
+    width: 72vw;
+}
+
+.workspaces {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 48px;
+    color: #B5E67B;
+    margin-bottom: 40px;
+}
+
+.workspace_card_main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.workspace_card {
+    height: 148px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: #B5E67B;
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.workspace_tasks {
+    border-radius: 15px;
+    cursor: pointer;
+    background-color:rgba(255, 255, 255, 0.10);
+    padding: 15px;
+	opacity:0; 
+	transition: 1s;
+    position: absolute;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.workspace_card:hover+ .workspace_tasks{
+	opacity:1;
+	transition: 1s;
+    position: relative;
+}
+
+
+.card_btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_btns button{
+    background: none;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn_users {
+    color: #51A36B;
+}
+
+.btn_delete_card {
+    color: #FF978C;
+}
+
+.card_name {
+    font-weight: 600;
+    font-size: 24px;
+    color: #51A36B;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: #FF7979;
+    width: 10px;
+    height: 10px;
+}
+
+.card_task {
+    font-weight: 500;
+    font-size: 15px;
+    color: #B5E67B;
+}
+
+.modal {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.10);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-wrapper {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(107, 114, 128, 0.5);
+  z-index: 9;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.close_add_card {
+  border-radius: 50%;
+  border-style: none;
+  background: #FF978C;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  line-height: 1.25rem;
+  cursor: pointer;
+}
+
+.modal .body {
+  padding: 15px;
+  background-color: #B5E67B;
+  display: flex;
+  gap: 15px;
+  border-radius: 15px;
+}
+
+.modal .body input {
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: none;
+    width: 541px;
+    height: 40px;
 }
