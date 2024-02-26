@@ -330,3 +330,29 @@ input {
     font-size: 20px;
     color: #51A36B;
 }
+
+.workspace_main {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    width: 72vw;
+    justify-content: flex-start;
+}
+
+.tasks_group {
+    display: flex;
+    flex-direction: column;
+    width: 23vw;
+    gap: 10px;
+}
+
+.main_tasks_group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
