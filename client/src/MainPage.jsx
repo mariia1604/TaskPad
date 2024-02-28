@@ -16,8 +16,8 @@ const MainPage = () => {
         <>
         <div className="main">
             <Header />
+            <h1>Ваши рабочие пространства</h1>
             <div className="main_content">
-                <h1>Ваши рабочие пространства</h1>
                 <div className="workspaces">
                     <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
                     <button className="add_workspace" onClick={toggleShowModal}>добавить доску</button>
