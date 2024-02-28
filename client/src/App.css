@@ -83,6 +83,7 @@ h1 {
     font-size: 48px;
     color: #B5E67B;
     width: 72vw;
+    text-align: center;
 }
 
 button {
@@ -330,7 +331,7 @@ input {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    width: 72vw;
+    width: 98vw;
     justify-content: flex-start;
 }
 
@@ -340,17 +341,59 @@ input {
     width: 23vw;
     gap: 10px;
     max-width: 442px;
+    min-width: 300px;
 }
 
 .main_tasks_group {
     display: flex;
     justify-content: space-between;
+    padding: 15px;
+    background-color: #B5E67B;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #51A36B;
+}
+
+.add_task_btn {
+    background-color: transparent;
+    border: none;
+    color: #51A36B;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .task {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #B5E67B;
+    border: none;
+}
+
+.task_main_about {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.p_task_main_name, .p_task_main_deadline {
+    text-align: left;
+}
+
+.delete_tasks_group {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF978C;
+    border: none;
+    padding: 15px;
 }
 
 .add_tasks_group {
@@ -362,6 +405,18 @@ input {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.1);
     padding: 15px;
+}
+
+.add_tasks_group input {
+    color: #B5E67B;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.input_add_group::-webkit-input-placeholder {
+    color: #B5E67B;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .input_add_group {
@@ -380,4 +435,24 @@ input {
     font-weight: 600;
     font-size: 20px;
     color: #B5E67B;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #B5E67B;
+    border-radius: 15px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
