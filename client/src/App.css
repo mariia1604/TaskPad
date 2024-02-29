@@ -21,12 +21,19 @@ html {
   padding: 15px;
 }
 
-.main {
+.main, .main_reg {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+}
+
+.main_reg {
+    justify-content: center;
+}
+
+.main {
     gap: 40px;
 }
 
@@ -94,6 +101,10 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+:any-link {
+    text-decoration: none;
 }
 
 .workspace_card {
@@ -456,3 +467,4 @@ input {
     flex-direction: column;
     gap: 5px;
 }
+

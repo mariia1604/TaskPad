@@ -9,6 +9,6 @@ import Workspace from './workspace.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
-      <Workspace />
+      <App />
     </Provider>
 )

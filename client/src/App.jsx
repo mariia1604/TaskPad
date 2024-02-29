@@ -7,6 +7,7 @@ import Reg from './reg/Reg'
 import Log from './auth/Auth'
 import { useSelector } from 'react-redux'
 import MainPage from './MainPage'
+import Workspace from './workspace'
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,11 @@ const authRouterAdmin = createBrowserRouter([
   {
     path: 'admin',
     element: <>admin</>
-  }
+  },
+  {
+    path: '/workspace',
+    element: <Workspace />
+  },
 ])
 
 function App() {

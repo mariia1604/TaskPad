@@ -1,6 +1,7 @@
 import { useState } from "react"
 import React from 'react'
 import Modal from "./ModalMembers"
+import { Link } from "react-router-dom";
 
 const CardMain = () => {
 
@@ -15,7 +16,7 @@ const CardMain = () => {
         <>
             <div className="workspace_card_main">
                 <div className="workspace_card">
-                    <p className="card_name">"Название"</p>
+                <Link to={'/workspace'}><p className="card_name">"Название"</p></Link>
                     <div className="card_btns">
                         <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
                         <button className='btn_users' onClick={toggleShowModal}>участники</button>

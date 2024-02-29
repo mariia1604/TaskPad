@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { regThunk } from '../redux/regSlice'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Reg = () => {
 
     const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const regState = useSelector((state) => state.reg)
@@ -22,26 +24,25 @@ const Reg = () => {
     return (
         regState.error ? <p>{regState.error}</p> :
             regState.loading ? <p>Loading...</p> :
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '100vh',
-                    gap: '8px'
-                }}>
+                <div className='main_reg'>
+                    <h1>Регистрация</h1>
                     <input value={username} onChange={(e) => {
                         setUsername(e.target.value)
-                    }} type="text" />
+                    }} type="text"  placeholder="Введите имя пользователя..." />
+                    <input value={email} onChange={(e) => {
+                        setEmail(e.target.value)
+                    }} type="email"  placeholder="Введите email..." />
                     <input value={password} onChange={(e) => {
                         setPassword(e.target.value)
-                    }} type="text" />
+                    }} type="password"  placeholder="Введите пароль..." />
                     <button onClick={() => {
                         dispatch(regThunk({
                             username: username,
+                            email: email,
                             password: password
                         }))
-                    }}>Регистрация</button>
+                    }}>зарегистрироваться</button>
+                    <a className="footer_a">Уже есть аккаунт? <Link to={'/auth'}><a>Войти</a></Link></a>
                 </div>
     )
 }

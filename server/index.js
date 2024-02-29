@@ -34,10 +34,6 @@ const start = async () => {
         role varchar(100) unique primary key
     )`
 
-    await sql`create table if not exists Roles_teams(
-        role varchar(100) unique primary key
-    )`
-
     await sql`create table if not exists Tasks(
         task_id SERIAL PRIMARY KEY NOT NULL,
         task_name varchar(100) NOT NULL,
@@ -71,7 +67,7 @@ const start = async () => {
         id_user_team SERIAL PRIMARY KEY NOT NULL,
         fk_user_id  INTEGER REFERENCES Users(id),
         fk_team_id  INTEGER REFERENCES Teams(team_id),
-        fk_team_role varchar(100) REFERENCES Roles_teams(role)
+        fk_team_role varchar(100) REFERENCES Roles(role)
     )`
 
     //запустить в первый раз и больше не запускать
@@ -79,9 +75,6 @@ const start = async () => {
 
     // await sql`insert into Roles(role) values('USER')`
     // await sql`insert into Roles(role) values('ADMIN')`
-
-    // await sql`insert into Roles_teams(role) values('USER')`
-    // await sql`insert into Roles_teams(role) values('ADMIN')`
 
     //запустить сервак
     //(прослушивать порт на запросы)

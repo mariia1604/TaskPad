@@ -4,7 +4,7 @@ import postgres from 'postgres'
 export const sql = postgres({
     host: 'localhost',
     port: 5432,
-    db: 'test',
+    db: 'taskpad',
     username: 'postgres',
-    password: '123'
+    password: 'root'
 })
