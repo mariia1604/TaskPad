@@ -60,6 +60,10 @@ const authRouterAdmin = createBrowserRouter([
     path: '/workspace',
     element: <Workspace />
   },
+  {
+    path: '/MainPage',
+    element: <MainPage />
+  },
 ])
 
 function App() {

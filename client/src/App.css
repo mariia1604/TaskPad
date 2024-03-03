@@ -31,6 +31,7 @@ html {
 
 .main_reg {
     justify-content: center;
+    gap: 40px;
 }
 
 .main {
@@ -408,8 +409,7 @@ input {
 }
 
 .add_tasks_group {
-    width: 23vw;
-    max-width: 442px;
+    width: fit-content;
     height: 54px;
     display:flex;
     flex-direction:row;
@@ -422,6 +422,7 @@ input {
     color: #B5E67B;
     font-size: 18px;
     font-weight: 600;
+    background-color: transparent;
 }
 
 .input_add_group::-webkit-input-placeholder {
@@ -468,3 +469,61 @@ input {
     gap: 5px;
 }
 
+.reg_inputes, .reg_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reg_text {
+    gap: 15px;
+}
+
+.reg_inputes {
+    gap: 30px;
+}
+
+.input_reg {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-radius: 15px;
+    height: 50px;
+    width: 35vw;
+    min-width: 370px;
+    max-width: 700px;
+    padding: 15PX;
+    border: none;
+}
+
+.input_reg::-webkit-input-placeholder {
+    color: #B5E67B;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.input_reg:focus {
+    color: #B5E67B;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.reg_btn {
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    color: #51A36B;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #B5E67B;
+}
+
+.footer_a {
+    color: #B5E67B;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.footer_a_link{
+    color: #B5E67B;
+    text-decoration: underline;
+}

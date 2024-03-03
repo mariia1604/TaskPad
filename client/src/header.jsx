@@ -5,6 +5,7 @@ import './App.css'
 import { useDispatch } from 'react-redux'
 import { logOut } from './redux/authSlice'
 import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -22,7 +23,7 @@ const Header = () => {
   return (
     <>
     <div className="header">
-        <a href="" className="nickname">@имя_пользователя</a>
+        <Link to={'/MainPage'}><a href="" className="nickname">@имя_пользователя</a></Link>
         <div className="a_header">
           <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
           <button className="settings" onClick={toggleShowModal}>настройки</button>

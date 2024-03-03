@@ -26,23 +26,23 @@ const Reg = () => {
             regState.loading ? <p>Loading...</p> :
                 <div className='main_reg'>
                     <h1>Регистрация</h1>
-                    <input value={username} onChange={(e) => {
-                        setUsername(e.target.value)
-                    }} type="text"  placeholder="Введите имя пользователя..." />
-                    <input value={email} onChange={(e) => {
-                        setEmail(e.target.value)
-                    }} type="email"  placeholder="Введите email..." />
-                    <input value={password} onChange={(e) => {
-                        setPassword(e.target.value)
-                    }} type="password"  placeholder="Введите пароль..." />
-                    <button onClick={() => {
-                        dispatch(regThunk({
+                    <div className="reg_inputes">
+                        <div className="reg_text">
+                            <input className='input_reg' value={username} onChange={(e) => { setUsername(e.target.value) }} type="text"  placeholder="Введите имя пользователя..." />
+                            <input className='input_reg' value={email} onChange={(e) => { setEmail(e.target.value) }} type="email"  placeholder="Введите email..." />
+                            <input className='input_reg' value={password} onChange={(e) => { setPassword(e.target.value) }} type="password"  placeholder="Введите пароль..." />
+
+                        </div>
+                    
+                        <button className='reg_btn' onClick={() => { dispatch(regThunk({
                             username: username,
                             email: email,
                             password: password
-                        }))
-                    }}>зарегистрироваться</button>
-                    <a className="footer_a">Уже есть аккаунт? <Link to={'/auth'}><a>Войти</a></Link></a>
+                        })) }}>зарегистрироваться</button>
+                        <a className="footer_a">Уже есть аккаунт? <Link to={'/auth'} className="footer_a_link"><a>Войти</a></Link></a>
+                    </div>
+                    
+                    
                 </div>
     )
 }

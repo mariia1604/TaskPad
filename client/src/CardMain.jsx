@@ -2,6 +2,7 @@ import { useState } from "react"
 import React from 'react'
 import Modal from "./ModalMembers"
 import { Link } from "react-router-dom";
+import Workspace_task from "./workspace_tasks";
 
 const CardMain = () => {
 
@@ -23,10 +24,7 @@ const CardMain = () => {
                         <button className='btn_delete_card'>удалить</button>
                     </div>
                 </div>
-                <div className="workspace_tasks">
-                    <div className="circle" />
-                    <p className="card_task">Задача</p>
-                </div>
+                <Workspace_task />
             </div>
             
         </>

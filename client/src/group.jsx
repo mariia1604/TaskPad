@@ -1,22 +1,26 @@
 import './App.css'
+import { useState } from "react"
+import Modal from './ModalAddTask';
+import Task from './task';
 
-function Group() {
+const Group = () => {
+
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleShowModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <>
         <div className="tasks_group">
             <div className="main_tasks_group">
                 <p className="p_main_tasks_group">Название группы задач</p>
-                <button className='add_task_btn'>+</button>
+                <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
+                <button className='add_task_btn' onClick={toggleShowModal}>+</button>
             </div>
             <div className="tasks">
-                <button className="task">
-                    <div className="task_main_about">
-                        <p className="p_task_main_name">Задача: </p>
-                        <p className="p_task_main_deadline">Выполнить до: </p>
-                    </div>
-                    <div className="circle" />
-                </button>
+                <Task />
             </div>
             <button className='delete_tasks_group'>удалить группу</button>
         </div>

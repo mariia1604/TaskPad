@@ -23,19 +23,21 @@ const Log = () => {
             authState.loading ? <p>Loading...</p> :
                 <div className='main_reg'>
                 <h1>Авторизация</h1>
-                    <input value={username} onChange={(e) => {
-                        setUsername(e.target.value)
-                    }} type="text"  placeholder="Введите имя пользователя..." />
-                    <input value={password} onChange={(e) => {
-                        setPassword(e.target.value)
-                    }} type="password"  placeholder="Введите пароль..." />
-                    <button onClick={() => {
-                        dispatch(loginThunk({
-                            username: username,
-                            password: password
-                        }))
-                    }}>войти</button>
-                    <a className="footer_a">Еще нет аккаунта? <Link to={'/reg'}><a>Создать</a></Link></a>
+                
+                <div className="reg_inputes">
+                    <div className="reg_text">
+                        <input className='input_reg' value={username} onChange={(e) => { setUsername(e.target.value) }} type="text"  placeholder="Введите имя пользователя..." />
+                        <input className='input_reg' value={password} onChange={(e) => { setPassword(e.target.value) }} type="password"  placeholder="Введите пароль..." />
+                    </div>
+                    
+                    <button className='reg_btn' onClick={() => { dispatch(loginThunk({
+                        username: username,
+                        password: password
+                    })) }}>войти</button>
+                    <a className="footer_a">Еще нет аккаунта? <Link to={'/reg'} className="footer_a_link"><a>Создать</a></Link></a>
+
+                </div>
+                    
                 </div>
     )
 }
