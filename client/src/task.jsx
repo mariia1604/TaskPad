@@ -19,6 +19,7 @@ const Task = () => {
                 <p className="p_task_main_deadline">Выполнить до: </p>
             </div>
             <div className="circle" />
+            
         </button>
         
     

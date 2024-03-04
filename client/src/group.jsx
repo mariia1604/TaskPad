@@ -15,7 +15,7 @@ const Group = () => {
     <>
         <div className="tasks_group">
             <div className="main_tasks_group">
-                <p className="p_main_tasks_group">Название группы задач</p>
+                <p className="p_main_tasks_group">Группа</p>
                 <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
                 <button className='add_task_btn' onClick={toggleShowModal}>+</button>
             </div>

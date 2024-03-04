@@ -4,6 +4,8 @@ import { register } from "./controllers/register.js";
 import { auth } from "./controllers/auth.js";
 import { roleMiddleware } from "./middlewares/roleMiddleware.js";
 import cors from 'cors'
+import path from "path"
+import jwt from 'jsonwebtoken'
 
 //порт на котором будет работать сервер
 const PORT = 3000
@@ -24,7 +26,6 @@ app.get('/', roleMiddleware(["ADMIN"]), async (req, res) => {
 app.post('/reg', register)
 //ветка логина
 app.post('/auth', auth)
-
 
 //функция старта приложения
 const start = async () => {

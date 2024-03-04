@@ -4,7 +4,7 @@ const ModalEditTask = ({ show, onCloseButtonClick }) => {
     }
   
     return (
-      <div className="modal-wrapper">
+      <div className="modal_wrapper">
         <div className="modal">
           <div className="modal_head">
             <p className="p_modal_head">Добавить доску</p>
