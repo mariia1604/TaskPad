@@ -35,26 +35,6 @@ const start = async () => {
         role varchar(100) unique primary key
     )`
 
-    await sql`create table if not exists Tasks(
-        task_id SERIAL PRIMARY KEY NOT NULL,
-        task_name varchar(100) NOT NULL,
-        task_description varchar(100) NOT NULL,
-        task_status varchar(100) NOT NULL,
-        task_deadline timestamp NOT NULL,
-        task_date_of_creation timestamp  DEFAULT NOW()
-    )`
-
-    await sql`create table if not exists Workspaces(
-        workspace_id SERIAL PRIMARY KEY NOT NULL,
-        fk_task_id INTEGER REFERENCES Tasks(task_id)
-    )`
-
-    await sql`create table if not exists Teams(
-        team_id SERIAL PRIMARY KEY NOT NULL,
-        team_name varchar(100) NOT NULL,
-        fk_workspace_id INTEGER REFERENCES Workspaces(workspace_id)
-    )`
-
     await sql`create table if not exists Users(
         id SERIAL PRIMARY KEY NOT NULL,
         name varchar(100) NOT NULL,
@@ -62,13 +42,6 @@ const start = async () => {
         role varchar(100),
         password varchar(100),
         FOREIGN KEY (role) REFERENCES Roles(role)
-    )`
-
-    await sql`create table if not exists User_team(
-        id_user_team SERIAL PRIMARY KEY NOT NULL,
-        fk_user_id  INTEGER REFERENCES Users(id),
-        fk_team_id  INTEGER REFERENCES Teams(team_id),
-        fk_team_role varchar(100) REFERENCES Roles(role)
     )`
 
     //запустить в первый раз и больше не запускать
