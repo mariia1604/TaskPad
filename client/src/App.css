@@ -625,3 +625,24 @@ input {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+.body_task_values {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.values {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
