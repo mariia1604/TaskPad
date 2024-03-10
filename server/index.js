@@ -27,6 +27,13 @@ app.post('/reg', register)
 //ветка логина
 app.post('/auth', auth)
 
+app.post("/add_workspace/", roleMiddleware(['USER']), async (req, res) => {
+    const { name } = req.body
+    console.log(name);
+    const data = await sql`INSERT INTO Workspaces(name) values(${name})`
+    res.sendStatus(200)
+})
+
 //функция старта приложения
 const start = async () => {
 
@@ -42,6 +49,36 @@ const start = async () => {
         role varchar(100),
         password varchar(100),
         FOREIGN KEY (role) REFERENCES Roles(role)
+    )`
+
+    await sql`create table if not exists Workspaces(
+        id SERIAL PRIMARY KEY NOT NULL,
+        name varchar(100) NOT NULL
+    )`
+
+    await sql`create table if not exists Groups(
+        id SERIAL PRIMARY KEY NOT NULL,
+        name varchar(100) NOT NULL,
+        workspace_id SERIAL,
+        FOREIGN KEY (workspace_id) REFERENCES Workspaces(id)
+    )`
+
+    await sql`create table if not exists Tasks(
+        id SERIAL PRIMARY KEY NOT NULL,
+        name varchar(100) NOT NULL,
+        description text NOT NULL,
+        date_of_creation timestamp DEFAULT NOW(),
+        deadline timestamp NOT NULL,
+        group_id SERIAL,
+        FOREIGN KEY (group_id) REFERENCES Groups(id)
+    )`
+
+    await sql`create table if not exists UserWorkspace(
+        id SERIAL PRIMARY KEY NOT NULL,
+        user_id SERIAL NOT NULL,
+        workspace_id SERIAL NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES Users(id),
+        FOREIGN KEY (workspace_id) REFERENCES Workspaces(id)
     )`
 
     //запустить в первый раз и больше не запускать

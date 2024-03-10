@@ -9,7 +9,6 @@ const ModalFullTask = ({ show, onCloseButtonClick }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     const handleClick = event => {
-    // 👇️ toggle visibility
       setIsVisible(current => !current);
     };
   
@@ -34,11 +33,14 @@ const ModalFullTask = ({ show, onCloseButtonClick }) => {
                 <p className="full_task_value">Значение</p>
               </div>
               <div>
-                <button onClick={handleClick}>редактировать</button>
+                <button className="edit_task_button" onClick={handleClick}>редактировать</button>
               </div>
             </div>
             <div className={`my-class ${isVisible ? 'visible' : 'hidden'}`}>
-              <h2>Some content here</h2>
+              <div className="inputs_edit">
+                <input type="text" className="input_edit" placeholder="Введите новое название задачи..." />
+                <button className="save_changes">сохранить</button>
+              </div>
             </div>
           </div>
           <div className="body_task_value">
@@ -46,15 +48,42 @@ const ModalFullTask = ({ show, onCloseButtonClick }) => {
             <p className="full_task_value">Значение</p>
           </div>
           <div className="body_task_value">
-            <p className="full_task_p">Описание:</p>
-            <p className="full_task_value">Значение</p>
+            <div className="body_task_values">
+              <div className="values">
+                <p className="full_task_p">Описание:</p>
+                <p className="full_task_value">Значение</p>
+              </div>
+              <div>
+                <button className="edit_task_button" onClick={handleClick}>редактировать</button>
+              </div>
+            </div>
+            <div className={`my-class ${isVisible ? 'visible' : 'hidden'}`}>
+              <div className="inputs_edit">
+                <input type="text" className="input_edit" placeholder="Введите новое описание задачи..." />
+                <button className="save_changes">сохранить</button>
+              </div>
+            </div>
           </div>
           <div className="body_task_value">
-            <p className="full_task_p">Выполнить до:</p>
-            <div className="value_deadline">
-              <div className="circle" />
-              <p className="full_task_value">Значение</p>
+            <div className="body_task_values">
+              <div className="values">
+                <p className="full_task_p">Выполнить до:</p>
+                <div className="value_deadline">
+                  <div className="circle" />
+                  <p className="full_task_value">Значение</p>
+                </div>
+              </div>
+              <div>
+                <button className="edit_task_button" onClick={handleClick}>редактировать</button>
+              </div>
             </div>
+            <div className={`my-class ${isVisible ? 'visible' : 'hidden'}`}>
+              <div className="inputs_edit">
+                <input type="datetime-local" className="input_edit" />
+                <button className="save_changes">сохранить</button>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
