@@ -30,7 +30,10 @@ app.post('/auth', auth)
 app.post("/add_workspace/", roleMiddleware(['USER']), async (req, res) => {
     const { name } = req.body
     console.log(name);
-    const data = await sql`INSERT INTO Workspaces(name) values(${name})`
+    console.log(req.headers.authorization);
+    const token = req.headers.authorization.split(' ')[1]
+    const {id} = jwt.verify(token, "SECRET_KEY")
+    const data = await sql`INSERT INTO Workspaces(name, user_id) values(${name}, ${id})`
     res.sendStatus(200)
 })
 
@@ -53,7 +56,9 @@ const start = async () => {
 
     await sql`create table if not exists Workspaces(
         id SERIAL PRIMARY KEY NOT NULL,
-        name varchar(100) NOT NULL
+        name varchar(100) NOT NULL,
+        user_id SERIAL NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES Users(id)
     )`
 
     await sql`create table if not exists Groups(
@@ -69,6 +74,7 @@ const start = async () => {
         description text NOT NULL,
         date_of_creation timestamp DEFAULT NOW(),
         deadline timestamp NOT NULL,
+        status varchar(100),
         group_id SERIAL,
         FOREIGN KEY (group_id) REFERENCES Groups(id)
     )`
