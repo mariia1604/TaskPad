@@ -4,20 +4,42 @@ import Modal from "./ModalMembers"
 import { Link } from "react-router-dom";
 import Workspace_task from "./workspace_tasks";
 
-const CardMain = () => {
+function CardMain() {
 
     const [showModal, setShowModal] = useState(false);
 
     const toggleShowModal = () => {
     setShowModal(!showModal);
+
+
   };
+
+  const [name, setName] = useState('')
+
+  const token = useSelector((state) => state.auth.token)
+
+  useEffect(() => {
+    fetch("http://localhost:3000/workspaces/", {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(data => data.json())
+      .then(data => setMyRequests(data))
+  }, [])
 
     return (
 
         <>
+        {
+        my_requests.map(el =>
+
             <div className="workspace_card_main">
                 <div className="workspace_card">
-                <Link to={'/workspace'}><p className="card_name">"Название"</p></Link>
+                <Link to={'/workspace'}><p className="card_name">{el.name}</p></Link>
                     <div className="card_btns">
                         <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
                         <button className='btn_users' onClick={toggleShowModal}>участники</button>
@@ -26,6 +48,8 @@ const CardMain = () => {
                 </div>
                 <Workspace_task />
             </div>
+        )
+        }
             
         </>
     )

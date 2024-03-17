@@ -6,5 +6,5 @@ export const sql = postgres({
   port: 5432,
   db: "taskpad",
   username: "postgres",
-  password: "9669",
+  password: "root",
 });

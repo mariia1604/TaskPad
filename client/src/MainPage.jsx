@@ -2,7 +2,7 @@ import { useState } from "react"
 import React from 'react'
 import Header from './header'
 import CardMain from './CardMain'
-import Modal from "./ModalAddCard"
+import Modal from "./NewModalAddCard"
 
 const MainPage = () => {
 
