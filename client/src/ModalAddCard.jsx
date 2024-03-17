@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const ModalAddCard = ({ show, onCloseButtonClick }) => {
     if (!show) {
@@ -6,6 +8,8 @@ const ModalAddCard = ({ show, onCloseButtonClick }) => {
     }
 
     const [name, setName] = useState('')
+
+    const token = useSelector((state) => state.auth.token)
 
     async function add(name1) {
       const data = new FormData();
@@ -17,6 +21,9 @@ const ModalAddCard = ({ show, onCloseButtonClick }) => {
       await fetch("http://localhost:3000/add_workspace/", {
       method: 'POST',
       mode: 'cors',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
       body: data
     });
     setName('')
@@ -37,7 +44,7 @@ const ModalAddCard = ({ show, onCloseButtonClick }) => {
             </div>
             <div className="body">
               <input type="text" placeholder="Введите название доски..." value={name} onChange={(e) => { setName(e.target.value) }} required />
-              <button className="btn_add_card">добавить</button>
+              <button type='submit' className="btn_add_card">добавить</button>
             </div>
           </div>
         </form>
