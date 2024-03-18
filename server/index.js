@@ -49,6 +49,13 @@ app.post("/add_workspace", roleMiddleware(["USER"]), async (req, res) => {
   }
 });
 
+app.get("/workspaces", roleMiddleware(['USER']), async (req, res) => {
+  const token = req.headers.authorization.split(' ')[1]
+  const {id} = jwt.verify(token, "SECRET_KEY")
+  const data = await sql`select * from workspaces where user_id = ${id}`
+  res.send(data)
+})
+
 //функция старта приложения
 const start = async () => {
   //создаем таблицы
