@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 //контроллер регистрации
 export const register = async (req, res) => {
     //вытаскиваем json и сразу вытаскиваем из нее переменные
-    const {username, password} = req.body;
+    const {username, password, email} = req.body;
     
     //кандидат это переменная в которую попытаемся найти и записать пользователя с таким никнеймом
     const candidate = await sql`select * from Users where name = ${username} limit 1`[0]
@@ -18,7 +18,7 @@ export const register = async (req, res) => {
     //вытаскиваем из базы роль для пользователя так как у нас связка таблиц
     const userRole = await sql`select * from Roles where role = 'USER'`
     //создаем нового пользователя
-    await sql`insert into Users(name, role, password) values(${username}, ${userRole[0].role}, ${hashPassword})`
+    await sql`insert into Users(name, role, password, email) values(${username}, ${userRole[0].role}, ${hashPassword}, ${email})`
     //отправляем пользователю 200 статус код (это значит что всё успешно)
     return res.send({message: "Пользователь успешно зарегистрирован"})
 }

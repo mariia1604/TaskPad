@@ -52,7 +52,7 @@ export const regThunk = createAsyncThunk("regThunk", async (data, { rejectWithVa
         return json
     } catch (error) {
         console.log(error);
-        return rejectWithValue("Чтото пошло не так")
+        return rejectWithValue("Что-то пошло не так")
     }
 })
 

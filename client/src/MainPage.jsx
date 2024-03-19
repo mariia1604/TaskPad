@@ -1,33 +1,47 @@
-import { useState } from "react"
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { logOut } from './redux/authSlice'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Header from './header'
-import CardMain from './CardMain'
-import Modal from "./NewModalAddCard"
 
 const MainPage = () => {
 
-    const [showModal, setShowModal] = useState(false);
+    const dispatch = useDispatch()
 
-    const toggleShowModal = () => {
-    setShowModal(!showModal);
-  };
+    const token = useSelector((state) => state.auth.token)
+    const role = useSelector((state) => state.auth.role)
 
     return (
         <>
-        <div className="main">
-            <Header />
-            <h1>Ваши рабочие пространства</h1>
-            <div className="main_content">
-                <div className="workspaces">
-                    <Modal show={showModal} onCloseButtonClick={toggleShowModal} />
-                    <button className="add_workspace" onClick={toggleShowModal}>добавить доску</button>
-                    <CardMain/>
-                    <CardMain/>
-                    <CardMain/>
-                    <CardMain/>               
+
+            {
+                role === "ADMIN" ? 
+                <div className='main'>
+                    <h1>Личный кабинет администратора</h1>
+                    <div className="main_profile">
+                        <Link to={'/done_requests'}><a>Обработанные заявки</a></Link>
+                        <Link to={'/undone_requests'}><a>Необработанные заявки</a></Link>
+                        <Link to={'/edit_admin'}><a>Мои данные</a></Link>
+                    </div>
+                    <button onClick={() => {
+                        dispatch(logOut())
+                    }}>выйти</button>
                 </div>
-            </div>
-        </div>
+                 : 
+                <div className='main'>
+                    <Header />
+                    <h1>Workspaces</h1>
+                    <div className="main_content">
+                        <div className="workspaces">
+                            <div className="workspace_card"><Link to={'/add_request'}><a className="card_name">Добавить задачу</a></Link></div>
+                            <div className="workspace_card"><Link to={'/my_requests'}><a className="card_name">Выполненные задачи</a></Link></div>
+                            <div className="workspace_card"><Link to={'/done_requests'}><a className="card_name">Невыполненные задачи</a></Link></div>
+                            <div className="workspace_card"><Link to={'/undone_requests'}><a className="card_name">В процессе</a></Link></div>
+                        </div>
+                    </div>
+                </div>
+            }
             
         </>
     )
