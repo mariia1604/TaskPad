@@ -17,8 +17,10 @@ function Undone_requests() {
       <h1>В процессе</h1>
 
       <form action="/users/register" method="GET">
-        <div className='div_form'>
-          <Undone_request />
+        <div className="main_content">
+          <div className='workspaces'>
+            <Undone_request />
+          </div>
         </div>
       </form>
 

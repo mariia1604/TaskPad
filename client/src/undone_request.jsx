@@ -33,12 +33,12 @@ function Undone_request() {
       my_requests.map(el =>
           
         <div className="my_request">
-          <a className="a_my_request">Задача создана {el.date_of_creation}</a>
+          <a className="a_my_request">Задача от {el.date_of_creation}</a>
           <a className="a_my_request">Название: {el.task_name}</a>
           <a className="a_my_request">Описание: {el.task_description}</a>
           <a className="a_my_request">Выполнить до: {el.deadline}</a>
 
-          <div className="a_my_request">
+          <div className="status_request">
             <Accept id={el.task_id} />
             <NotAccept id={el.task_id} />
           </div>

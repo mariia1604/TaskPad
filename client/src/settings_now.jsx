@@ -29,7 +29,7 @@ function Settings_now() {
           {
             my_info.map(el =>
               
-              <div className="my_request">
+              <div className="now">
                 <a className="a_my_request">Текущее имя пользователя: {el.name}</a>
                 <a className="a_my_request">Текущий email: {el.email}</a>
               </div>

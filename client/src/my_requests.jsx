@@ -17,8 +17,10 @@ function My_requests() {
       <h1>Выполненные задачи</h1>
 
       <form action="/users/register" method="GET">
-        <div className='div_form'>
-          <My_request />
+        <div className='main_content'>
+          <div className="workspaces">
+            <My_request />
+          </div>
         </div>
       </form>
 

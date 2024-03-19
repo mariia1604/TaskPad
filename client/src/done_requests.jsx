@@ -17,8 +17,10 @@ function Done_requests() {
       <h1>Невыполненные задачи</h1>
 
       <form action="/users/register" method="GET">
-        <div className='div_form'>
-          <Done_request />
+        <div className='main_content'>
+          <div className="workspaces">
+            <Done_request />
+          </div>
         </div>
       </form>
 

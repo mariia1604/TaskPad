@@ -18,6 +18,17 @@ h1 {
   text-align: center;
 }
 
+.a_my_request {
+  color: #51A36B;
+  font-weight: 500;
+}
+
+.nickname {
+  color: #B5E67B;
+  font-weight: 600;
+  font-size: 20px;
+}
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -177,8 +188,14 @@ input[type=submit] {
   color: #FF3A3A;
 }
 
+.status_request {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
 .my_request {
-  background: rgba(255, 255, 255, 0.10);
+  background: #B5E67B;
   padding: 15px;
   display: flex;
   gap: 10px;
@@ -186,13 +203,21 @@ input[type=submit] {
   flex-direction: column;
   font-size: 20px;
   font-weight: 400;
-  width: 450px;
+  width: fit-content;
 }
 
-img {
-  background: white;
-  width: 100%;
-  height: 100%;
+.now {
+  background: rgba(255, 255, 255, 0.50);
+  padding: 15px;
+  display: flex;
+  gap: 10px;
+  border-radius: 15px;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 400;
+  width: 35vw;
+  min-width: 370px;
+  max-width: 700px;
 }
 
 input[type=button] {
@@ -209,7 +234,7 @@ input[type=button] {
   padding: 0;
   margin: 0;
   color: #00C236;
-  background: white;
+  background: transparent;
   border: none;
   font-size: 20px;
   font-style: normal;
@@ -222,8 +247,8 @@ input[type=button] {
 #not_accept {
   padding: 0;
   margin: 0;
+  background: transparent;
   color: #FF3A3A;
-  background: white;
   border: none;
   font-size: 20px;
   font-style: normal;

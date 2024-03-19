@@ -30,7 +30,7 @@ function Done_request() {
         my_requests.map(el =>
           
           <div className="my_request">
-            <a className="a_my_request">Задача создана {el.date_of_creation}</a>
+            <a className="a_my_request">Задача от {el.date_of_creation}</a>
             <a className="a_my_request">Статус: <a className="notaccept_task">{el.status}</a></a>
           </div>
 

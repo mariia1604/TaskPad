@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <>
     <div className="header">
-        <Link to={'/'}><a href="" className="nickname">@имя_пользователя</a></Link>
+        <Link to={'/'}><a href="" className="nickname">TaskPad</a></Link>
         <div className="a_header">
           <Link to={'/edit_user'} className="settings">настройки</Link>
           <button className="logout" onClick={() => { dispatch(logOut()) }}>выйти</button>
